@@ -66,9 +66,22 @@ class AnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Answer $answer)
     {
-        //
+        $user = auth()->user();
+        $user_id = $user->id;
+        $answer_id = $answer->id;
+
+        $answers = $answer->where('user_id', $user_id)->where('id', $answer_id)->first();
+
+        if(!isset($answers)) {
+            return back();
+        }
+
+        return view('answers.edit', [
+            'user' => $user,
+            'answers' => $answers
+        ]);
     }
 
     /**
@@ -78,9 +91,17 @@ class AnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Answer $answer)
     {
-        //
+        $data = $request->all();
+        $validator = Validator::make($data, [
+            'text' => ['required', 'string']
+        ]);
+
+        $validator->validate();
+        $answer->answerUpdate($answer->id, $data);
+
+        return redirect('questions');
     }
 
     /**
@@ -89,8 +110,13 @@ class AnswersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Answer $answer)
     {
-        //
+        $user = auth()->user();
+        $user_id = $user->id;
+        $answer_id = $answer->id;
+        $answer->where('user_id', $user_id)->where('id', $answer_id)->delete();
+
+        return back();
     }
 }

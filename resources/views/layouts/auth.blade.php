@@ -25,12 +25,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-white">
     <div id="app">
 
-        @include('include.navbar')
-
-        <main class="py-4" style="background-color: #F2F2F2;">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

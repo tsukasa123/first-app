@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top p-0">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+        <a class="navbar-brand p-0" href="{{ url('/questions') }}">
+            <img src="{{ asset('storage/profile_image/FearTalk.png')}}" height="50" width="130">
+            {{-- {{ config('app.name', 'Laravel') }} --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                @include('include.search')
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -26,11 +27,15 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item mr-3">
-                        <a href="{{ url('questions') }}"><i class="fas fa-home fa-2x pt-1 text-muted"></i></a>
+                    <li class="nav-item mr-2">
+                        <a href="{{ url('questions') }}" class="btn btn-md btn-secondary rounded-pill">
+                            <i class="fas fa-home pt-1 text-white"></i> Home
+                        </a>
                     </li>
-                    <li class="nav-item mr-3">
-                        <a href="{{ url('questions/create') }}" class="btn btn-md btn-success rounded-pill">Ask a quesiton</a>
+                    <li class="nav-item mr-2">
+                        <a href="{{ url('questions/create') }}" class="btn btn-md btn-primary rounded-pill">
+                            <i class="fas fa-feather-alt mr-1"></i>Ask
+                        </a>
                     </li>
                     <li class="nav-item">
                         <img src="{{ asset('storage/profile_image/' .auth()->user()->profile_image) }}" class="rounded-circle" width="40" height="40">
@@ -41,10 +46,15 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{ route('users.show', [Auth::user()->id]) }}">
+                                <i class="fas fa-user mr-2"></i>Profile
+                            </a>
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt mr-2"></i>{{ __('Logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

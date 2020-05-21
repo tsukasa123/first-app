@@ -6,12 +6,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <i class="fas fa-feather-alt mr-2"></i>Ask a question
+                    <i class="fas fa-edit mr-1"></i>Edit Your Answer
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('questions.store') }}">
+                    <form method="POST" action="{{ route('answers.update', [$answers]) }}">
                         @csrf
+                        @method('PUT')
 
                         <div class="form-group row mb-0">
                             <div class="col-md-12 p-3 w-100 d-flex">
@@ -22,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="form-control @error('text') is-invalid @enderror" name="text" required autocomplete="text" rows="4">{{ old('text') }}</textarea>
+                                <textarea class="form-control @error('text') is-invalid @enderror" name="text" required autocomplete="text" rows="4">{{ old('text') ? : $answers->text }}</textarea>
 
                                 @error('text')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +37,7 @@
                             <div class="col-md-12 text-right">
                                 {{-- <p class="mb-4 text-danger">in 140 words or less</p> --}}
                                 <button type="submit" class="btn btn-primary rounded-pill mt-4">
-                                    Post
+                                    Edit
                                 </button>
                             </div>
                         </div>

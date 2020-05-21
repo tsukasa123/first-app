@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Update</div>
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-edit mr-1"></i>Edit Your Question
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('questions.update', [$questions]) }}">
@@ -33,9 +35,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-12 text-right">
-                                <p class="mb-4 text-danger">in 140 words or less</p>
-                                <button type="submit" class="btn btn-primary">
-                                    Post
+                                {{-- <p class="mb-4 text-danger">in 140 words or less</p> --}}
+                                <button type="submit" class="btn btn-primary rounded-pill mt-4">
+                                    Edit
                                 </button>
                             </div>
                         </div>

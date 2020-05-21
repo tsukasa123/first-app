@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index(User $user)
     {
         $user_id = auth()->user()->id;
-        $users = $user->where('id', '<>', $user_id)->paginate(5);
+        $users = $user->where('id', '<>', $user_id)->paginate(15);
 
         // OOP
         // $all_users = $user->getAllUsers(auth()->user()->id);

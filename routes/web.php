@@ -29,10 +29,14 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('questions', 'QuestionsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 
     // Answer
-    Route::resource('answers', 'AnswersController', ['only' => ['store']]);
+    Route::resource('answers', 'AnswersController', ['only' => ['store', 'edit', 'update', 'destroy']]);
 
     // Favorites
     Route::resource('favorites', 'FavoritesController', ['only' => ['store', 'destroy']]);
+
+    // Search
+    Route::get('/results', 'QuestionsController@search')->name('search.results');
+
 });
 
 Auth::routes();

@@ -117,7 +117,7 @@ class QuestionsController extends Controller
     {
         $data = $request->all();
         $validator = Validator::make($data, [
-            'text' => ['required', 'string', 'max:140']
+            'text' => ['required', 'string']
         ]);
 
         $validator->validate();
@@ -140,5 +140,21 @@ class QuestionsController extends Controller
         $question->where('user_id', $user_id)->where('id', $question_id)->delete();
 
         return back();
+    }
+
+    public function search(Question $question)
+    {
+        // $user = auth()->user();
+        // $user_id = $user->id;
+        // $question_id = $question->id;
+
+        // $questions = $question->where('user_id', $user_id)->where('id', $question_id)->first();
+
+        $questions = $question->where('text', 'like', '%'.request('query').'%')->get();
+
+        return view('questions.results', [
+            'questions' => $questions,
+            'query' => request('query')
+        ]);
     }
 }

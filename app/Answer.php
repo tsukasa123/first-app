@@ -30,4 +30,13 @@ class Answer extends Model
 
         return;
     }
+
+    public function answerUpdate($answer_id, Array $data)
+    {
+        $this->id = $answer_id;
+        $this->text = $data['text'];
+        $this->update();
+
+        return;
+    }
 }
