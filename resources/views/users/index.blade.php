@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 @foreach($users as $user)
                     <div class="card">
-                        <div class="card-header p-3 w-100 d-flex">
+                        <div class="card-header border-bottom-0 bg-white p-3 w-100 d-flex">
                             <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
                             <div class="ml-2 d-flex flex-column">
                                 <p class="mb-0">{{ $user->name }}</p>
@@ -32,6 +32,11 @@
                                 @endif
                             </div>
                         </div>
+                        @if(isset($user->profile_text))
+                            <div class="card-body py-0 w-100">
+                                <p>{{ $user->profile_text }}</p>
+                            </div>  
+                        @endif
                     </div>
                 @endforeach
             </div>

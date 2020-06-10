@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Question;
 use App\Answer;
 use App\Follower;
+use Session;
 
 class QuestionsController extends Controller
 {
@@ -21,6 +22,7 @@ class QuestionsController extends Controller
         // $user_id = auth()->user()->id;
 
         $questions = $question->orderBy('created_at', 'DESC')->paginate(10);
+
         // $questions = $question->where('user_id', $user_id)->orderBy('created_at', 'DESC')->paginate(50);
 
         return view('questions.index', [
@@ -59,6 +61,8 @@ class QuestionsController extends Controller
 
         $validator->validate();
         $question->questionStore($user->id, $data);
+
+        Session::flash('success', 'Your Question Posted Successfuly!');
 
         return redirect('questions');        
     }
@@ -123,6 +127,8 @@ class QuestionsController extends Controller
         $validator->validate();
         $question->questionUpdate($question->id, $data);
 
+        Session::flash('success', 'Your Question Edited Successfuly!');
+
         return redirect('questions');
     }
 
@@ -138,6 +144,8 @@ class QuestionsController extends Controller
         $user_id = $user->id;
         $question_id = $question->id;
         $question->where('user_id', $user_id)->where('id', $question_id)->delete();
+
+        Session::flash('success', 'Your Question Deleted Successfuly!');
 
         return back();
     }
@@ -155,6 +163,17 @@ class QuestionsController extends Controller
         return view('questions.results', [
             'questions' => $questions,
             'query' => request('query')
+        ]);
+    }
+
+    public function trend(Question $question)
+    {
+        $user = auth()->user();
+        $questions = Question::withCount('favorites')->orderBy('favorites_count', 'desc')->paginate(10);
+
+        return view('questions.trend', [
+            'user' => $user,
+            'questions' => $questions
         ]);
     }
 }

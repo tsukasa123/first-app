@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use App\Answer;
 
 class AnswersController extends Controller
@@ -40,11 +41,13 @@ class AnswersController extends Controller
         $data = $request->all();
         $validator = Validator::make($data, [
             'question_id' => ['required', 'integer'],
-            'text' => ['required', 'string']
+            'text' => ['required', 'string', 'max:255']
         ]);
 
         $validator->validate();
         $answer->answerStore($user->id, $data);
+
+        Session::flash('success', 'Your Answer Posted Successfuly!');
 
         return back();
     }
@@ -101,6 +104,8 @@ class AnswersController extends Controller
         $validator->validate();
         $answer->answerUpdate($answer->id, $data);
 
+        Session::flash('success', 'Your Answer Edited Successfuly!');
+
         return redirect('questions');
     }
 
@@ -116,6 +121,8 @@ class AnswersController extends Controller
         $user_id = $user->id;
         $answer_id = $answer->id;
         $answer->where('user_id', $user_id)->where('id', $answer_id)->delete();
+
+        Session::flash('success', 'Your Answer Deleted Successfuly!');
 
         return back();
     }

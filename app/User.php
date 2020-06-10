@@ -19,6 +19,7 @@ class User extends Authenticatable
         'screen_name',
         'name',
         'profile_image',
+        'profile_text',
         'email',
         'password',
     ];
@@ -80,6 +81,7 @@ class User extends Authenticatable
                     'screen_name' => $params['screen_name'],
                     'name' => $params['name'],
                     'profile_image' => basename($file_name),
+                    'profile_text' => $params['profile_text'],
                     'email' => $params['email'],
             ]);
         } else {
@@ -87,6 +89,7 @@ class User extends Authenticatable
                 ->update([
                     'screen_name' => $params['screen_name'],
                     'name' => $params['name'],
+                    'profile_text' => $params['profile_text'],
                     'email' => $params['email'],
             ]);
         }

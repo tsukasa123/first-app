@@ -19,22 +19,22 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link btn btn-primary text-light rounded-pill mr-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link border border-primary text-primary rounded-pill" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
                     <li class="nav-item mr-2">
-                        <a href="{{ url('questions') }}" class="btn btn-md btn-secondary rounded-pill">
-                            <i class="fas fa-home pt-1 text-white"></i> Home
+                        <a href="{{ url('questions') }}" class="btn btn-md btn-secondary rounded-pill d-flex">
+                            <i class="fas fa-home pt-1 mr-1 text-white"></i> Home
                         </a>
                     </li>
                     <li class="nav-item mr-2">
-                        <a href="{{ url('questions/create') }}" class="btn btn-md btn-primary rounded-pill">
-                            <i class="fas fa-feather-alt mr-1"></i>Ask
+                        <a href="{{ url('questions/create') }}" class="btn btn-md btn-primary rounded-pill d-flex">
+                            <i class="fas fa-feather-alt pt-1 mr-1"></i>Ask
                         </a>
                     </li>
                     <li class="nav-item">

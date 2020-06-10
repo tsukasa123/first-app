@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'screen_name' => 'user'.$i,
                 'name' => 'USER'.$i,
+                'profile_text' => 'Hello',
                 'email' => 'test'.$i.'@test.com',
                 'password' => Hash::make('12345678'),
                 'remember_token' => str_random(10),

@@ -36,7 +36,7 @@ class Question extends Model
         $this->user_id = $user_id;
         $this->text = $data['text'];
         $this->save();
-
+    
         return;
     }
 

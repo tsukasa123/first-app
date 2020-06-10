@@ -28,14 +28,17 @@ Route::group(['middleware' => 'auth'], function(){
     // Questions
     Route::resource('questions', 'QuestionsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 
+    // Search
+    Route::get('/results', 'QuestionsController@search')->name('search.results');
+
+    // Trend
+    Route::get('/trend', 'QuestionsController@trend')->name('questions.trend');
+
     // Answer
     Route::resource('answers', 'AnswersController', ['only' => ['store', 'edit', 'update', 'destroy']]);
 
     // Favorites
     Route::resource('favorites', 'FavoritesController', ['only' => ['store', 'destroy']]);
-
-    // Search
-    Route::get('/results', 'QuestionsController@search')->name('search.results');
 
 });
 

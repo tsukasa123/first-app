@@ -3,9 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center border rounded bg-white">
-        <div class="col-md-8 my-3 text-right">
-            <a href="{{ url('users') }}">User List <i class="fas fa-users ml-1" class="fa-fw"></i> </a>
+
+       <div class="col-md-8 my-3 d-flex">
+            <div class="d-flex">
+                <a class="btn btn-outline-secondary rounded-pill mr-2">Recent</a>
+                <a href="{{ route('questions.trend') }}" class="btn btn-primary rounded-pill mb-0 pb-0">Trend</a>
+            </div>
+            <div class="ml-auto">
+                <a href="{{ url('users') }}" class="btn btn-primary rounded-pill">User List <i class="fas fa-users ml-1" class="fa-fw"></i> </a>
+            </div>
         </div>
+
+        <div class="col-md-8 my-2">
+            <h2>Recent Questions</h2>
+        </div>
+        
+        {{-- <div class="col-md-8 my-3 text-right">
+            <a href="{{ url('users') }}">User List <i class="fas fa-users ml-1" class="fa-fw"></i> </a>
+        </div> --}}
         @if (isset($questions))
             @foreach ($questions as $question)
                 <div class="col-md-8 mb-3">
@@ -25,7 +40,7 @@
                                 {!! nl2br(e($question->text)) !!}
                             </a>
                         </div>
-                        <div class="card-footer py-1 d-flex justify-content-between bg-white border-top-0">
+                        <div class="card-footer pb-2 d-flex justify-content-between bg-white border-top-0">
                             <div class="d-flex">
                                 <div class="mr-3 d-flex align-items-center bg-primary rounded-pill px-3 py-1">
                                     <a href="{{ url('questions/' .$question->id) }}"><i class="far fa-comment fa-fw mr-1 text-light"></i></a>
