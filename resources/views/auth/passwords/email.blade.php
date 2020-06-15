@@ -7,7 +7,8 @@
             <div class="card border-0">
                 {{-- <div class="card-header">{{ __('Reset Password') }}</div> --}}
                 <div class="card-header bg-white text-center border-bottom-0">
-                    <img src="{{ asset('storage/profile_image/FearTalk.png')}}" height="50" width="130">
+                    <img src="https://tsukasa-s3-bucket.s3-ap-northeast-1.amazonaws.com/feartalk.png" height="50" width="130">
+                    {{-- <img src="{{ asset('storage/profile_image/FearTalk.png')}}" height="50" width="130"> --}}
                     <h1 class="mt-3"><b>Reset Password</b></h1>
                 </div>
 
