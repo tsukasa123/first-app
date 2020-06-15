@@ -26,7 +26,10 @@
                 <div class="col-md-8 mb-3">
                     <div class="card border-primary">
                         <div class="card-haeder p-3 w-100 d-flex">
-                            <img src="{{ asset('storage/profile_image/' .$question->user->profile_image) }}" class="rounded-circle" width="50" height="50">
+
+                            <img src="{{ $question->user->profile_image }}" class="rounded-circle" width="50" height="50">
+                            {{-- <img src="{{ asset('storage/profile_image/' .$question->user->profile_image) }}" class="rounded-circle" width="50" height="50"> --}}
+
                             <div class="ml-2 d-flex flex-column">
                                 <p class="mb-0">{{ $question->user->name }}</p>
                                 <a href="{{ url('users/' .$question->user->id) }}" class="text-secondary">{{ $question->user->screen_name }}</a>

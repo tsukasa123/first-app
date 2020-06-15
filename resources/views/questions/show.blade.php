@@ -6,7 +6,8 @@
         <div class="col-md-8 mb-3">
             <div class="card border-primary">
                 <div class="card-haeder p-3 w-100 d-flex">
-                    <img src="{{ asset('storage/profile_image/' .$question->user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                    <img src="{{ $question->user->profile_image }}" class="rounded-circle" width="50" height="50">
+                    {{-- <img src="{{ asset('storage/profile_image/' .$question->user->profile_image) }}" class="rounded-circle" width="50" height="50"> --}}
                     <div class="ml-2 d-flex flex-column">
                         <p class="mb-0">{{ $question->user->name }}</p>
                         <a href="{{ url('users/' .$question->user->id) }}" class="text-secondary">{{ $question->user->screen_name }}</a>
@@ -121,7 +122,8 @@
                 @forelse ($answers as $answer)
                     <li class="list-group-item">
                         <div class="py-3 w-100 d-flex">
-                            <img src="{{ asset('storage/profile_image/' .$answer->user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                            <img src="{{ $answer->user->profile_image }}" class="rounded-circle" width="50" height="50">
+                            {{-- <img src="{{ asset('storage/profile_image/' .$answer->user->profile_image) }}" class="rounded-circle" width="50" height="50"> --}}
                             <div class="ml-2 d-flex flex-column">
                                 <p class="mb-0">{{ $answer->user->name }}</p>
                                 <a href="{{ url('users/' .$answer->user->id) }}" class="text-secondary">{{ $answer->user->screen_name }}</a>
@@ -168,7 +170,8 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 p-3 w-100 d-flex">
-                                    <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                                    <img src="{{ $user->profile_image }}" class="rounded-circle" width="50" height="50">
+                                    {{-- <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50"> --}}
                                     <div class="ml-2 d-flex flex-column">
                                         <p class="mb-0">{{ $user->name }}</p>
                                         <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->screen_name }}</a>

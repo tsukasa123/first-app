@@ -5,14 +5,16 @@
     <div class="row justify-content-center bg-white">
         <div class="row d-flex my-5 align-items-center">
             <h1 class="text-center" style="font-size: 4rem;">Welcome to</h1>
-            <img src="{{ asset('storage/profile_image/FearTalk.png') }}" width="280" height="110">
+            <img src="{{ $logo }}" width="280" height="110">
+            {{-- <img src="{{ asset('storage/profile_image/FearTalk.png') }}" width="280" height="110"> --}}
         </div>
 
         <div class="col-md-8 mb-3 border py-3">
-            <h2 class="text-primary text-center rounded-lg py-2">Post Your Question!</h2>
-            <h3 class="text-center">Get rid of your fear!<br> You can find your cause of fears.</h3>
+            <h2 class="text-primary text-center rounded-lg py-2">Post Your Questions!</h2>
+            <h3 class="text-center">Get rid of your fear!<br> You can find your cause of fear.</h3>
             <div class="row justify-content-center">
-                <img src="/storage/profile_image/image1.png">
+                <img src="{{ $first_image }}">
+                {{-- <img src="/storage/profile_image/image1.png"> --}}
             </div>
             {{-- <div class="card border-primary">
                 <div class="card-haeder p-3 w-100 d-flex">
@@ -45,9 +47,10 @@
             </div> --}}
             <h3 class="text-center py-2" style="font-size: 3rem;">↓</h3>
             <h2 class="text-primary text-center rounded-lg pb-2">Get Answers From Strangers!</h2>
-            <h3 class="text-center pb-2">Someone will answer your question!</h2>
+            <h3 class="text-center pb-2">Someone will answer your questions!</h2>
             <div class="row justify-content-center">
-                <img src="/storage/profile_image/image2.png" alt="">
+                <img src="{{ $second_image }}">
+                {{-- <img src="/storage/profile_image/image2.png" alt=""> --}}
             </div>
             <h2 class="text-primary text-center rounded-lg pt-5">Let's Ask Right Now!!</h2>
             <div class="row justify-content-center py-2 px-5 mb-5">

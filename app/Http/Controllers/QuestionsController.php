@@ -147,7 +147,8 @@ class QuestionsController extends Controller
 
         Session::flash('success', 'Your Question Deleted Successfuly!');
 
-        return back();
+        return redirect('questions');
+        // return back();
     }
 
     public function search(Question $question)

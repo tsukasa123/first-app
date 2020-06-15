@@ -7,7 +7,8 @@
                 @foreach($users as $user)
                     <div class="card">
                         <div class="card-header border-bottom-0 bg-white p-3 w-100 d-flex">
-                            <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                            <img src="{{ $user->profile_image }}" class="rounded-circle" width="50" height="50">
+                            {{-- <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50"> --}}
                             <div class="ml-2 d-flex flex-column">
                                 <p class="mb-0">{{ $user->name }}</p>
                                 <a href="{{ route('users.index') }}" class="text-secondary">{{ $user->screen_name }}</a>

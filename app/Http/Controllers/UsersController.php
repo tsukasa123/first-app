@@ -73,7 +73,7 @@ class UsersController extends Controller
             'questions' => $questions,
             'question_count' => $question_count,
             'follow_count' => $follow_count,
-            'follower_count' => $follower_count
+            'follower_count' => $follower_count,
         ]);
     }
 

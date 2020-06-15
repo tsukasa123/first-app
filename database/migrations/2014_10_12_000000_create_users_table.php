@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('screen_name')->unique()->null();
             $table->string('name')->null();
-            $table->string('profile_image')->default('default.png');
+            $table->string('profile_image')->default('https://tsukasa-s3-bucket.s3-ap-northeast-1.amazonaws.com/default.png');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

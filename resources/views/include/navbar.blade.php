@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top p-0">
     <div class="container">
         <a class="navbar-brand p-0" href="{{ url('/questions') }}">
-            <img src="{{ asset('storage/profile_image/FearTalk.png')}}" height="50" width="130">
+            <img src="https://tsukasa-s3-bucket.s3-ap-northeast-1.amazonaws.com/feartalk.png" height="50" width="130">
+            {{-- <img src="{{ asset('storage/profile_image/FearTalk.png')}}" height="50" width="130"> --}}
             {{-- {{ config('app.name', 'Laravel') }} --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,7 +39,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <img src="{{ asset('storage/profile_image/' .auth()->user()->profile_image) }}" class="rounded-circle" width="40" height="40">
+                        <img src="{{ auth()->user()->profile_image }}" class="rounded-circle" width="40" height="40">
+                        {{-- <img src="{{ asset('storage/profile_image/' .auth()->user()->profile_image) }}" class="rounded-circle" width="40" height="40"> --}}
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
